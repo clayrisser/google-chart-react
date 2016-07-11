@@ -1,7 +1,7 @@
 {
-  "name": "google-chart-react",
+  "name": "react-google-chart",
   "version": "1.0.0",
-  "description": "Google Chart",
+  "description": "React Google Chart",
   "main": "lib/GoogleChart.js",
   "author": "Jam Risser",
   "homepage": "https://github.com/jamrizzi/google-chart-react",
