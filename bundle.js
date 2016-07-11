@@ -268,8 +268,8 @@ var GoogleChart = (function (_React$Component) {
 		key: 'handleScriptLoad',
 		value: function handleScriptLoad() {
 			this.setState({ scriptLoaded: true });
-			console.log(google.charts);
-			google.charts.load('current', { packages: ['corechart'] });
+			this.props.packages.push('corechart');
+			google.charts.load('current', { packages: this.props.packages });
 			google.charts.setOnLoadCallback(this.props.drawChart);
 			console.log('yeah');
 		}
@@ -295,9 +295,12 @@ var GoogleChart = (function (_React$Component) {
 
 exports['default'] = GoogleChart;
 
-GoogleChart.defaultProps = { drawChart: function drawChart() {
+GoogleChart.defaultProps = {
+	packages: [],
+	drawChart: function drawChart() {
 		document.getElementById('chart_div').innerHTML = 'Chart not created.';
-	} };
+	}
+};
 module.exports = exports['default'];
 
 },{"react":undefined,"react-load-script":2}]},{},[]);
