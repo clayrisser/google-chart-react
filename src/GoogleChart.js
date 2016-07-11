@@ -18,8 +18,8 @@ export default class GoogleChart extends React.Component {
 
 	handleScriptLoad() {
 		this.setState({scriptLoaded: true});
-		console.log(google.charts);
-		google.charts.load('current', {packages: ['corechart']});
+		this.props.packages.push('corechart');
+		google.charts.load('current', {packages: this.props.packages});
 		google.charts.setOnLoadCallback(this.props.drawChart);
 		console.log('yeah');
 	}
@@ -39,6 +39,9 @@ export default class GoogleChart extends React.Component {
 	}
 }
 
-GoogleChart.defaultProps = {drawChart: function() {
-	document.getElementById('chart_div').innerHTML = 'Chart not created.';
-}};
+GoogleChart.defaultProps = {
+	packages: [],
+	drawChart: function() {
+		document.getElementById('chart_div').innerHTML = 'Chart not created.';
+	}
+};
