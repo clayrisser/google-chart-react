@@ -1,0 +1,29 @@
+{
+  "name": "google-chart-react",
+  "version": "0.0.0",
+  "description": "Google Chart",
+  "main": "dist/google-chart-react.min.js",
+  "homepage": "https://github.com/jamrizzi/google-chart-react",
+  "authors": [
+    "Jam Risser"
+  ],
+  "moduleType": [
+    "amd",
+    "globals",
+    "node"
+  ],
+  "keywords": [
+    "react",
+    "react-component"
+  ],
+  "license": "MIT",
+  "ignore": [
+    ".editorconfig",
+    ".gitignore",
+    "package.json",
+    "src",
+    "node_modules",
+    "example",
+    "test"
+  ]
+}
