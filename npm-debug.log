@@ -1,0 +1,90 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node', '/usr/local/bin/npm', 'publish' ]
+2 info using npm@2.11.3
+3 info using node@v0.12.7
+4 verbose publish [ '.' ]
+5 silly cache add args [ '.', null ]
+6 verbose cache add spec .
+7 silly cache add parsed spec { raw: '.',
+7 silly cache add   scope: null,
+7 silly cache add   name: null,
+7 silly cache add   rawSpec: '.',
+7 silly cache add   spec: '/home/jamrizzi/Projects/apparelhub/components/google-chart-react',
+7 silly cache add   type: 'directory' }
+8 verbose addLocalDirectory /home/jamrizzi/.npm/google-chart-react/1.0.0/package.tgz not in flight; packing
+9 verbose tar pack [ '/home/jamrizzi/.npm/google-chart-react/1.0.0/package.tgz',
+9 verbose tar pack   '/home/jamrizzi/Projects/apparelhub/components/google-chart-react' ]
+10 verbose tarball /home/jamrizzi/.npm/google-chart-react/1.0.0/package.tgz
+11 verbose folder /home/jamrizzi/Projects/apparelhub/components/google-chart-react
+12 info prepublish google-chart-react@1.0.0
+13 verbose addLocalTarball adding from inside cache /home/jamrizzi/.npm/google-chart-react/1.0.0/package.tgz
+14 silly cache afterAdd google-chart-react@1.0.0
+15 verbose afterAdd /home/jamrizzi/.npm/google-chart-react/1.0.0/package/package.json not in flight; writing
+16 verbose afterAdd /home/jamrizzi/.npm/google-chart-react/1.0.0/package/package.json written
+17 silly publish { name: 'google-chart-react',
+17 silly publish   version: '1.0.0',
+17 silly publish   description: 'Google Chart',
+17 silly publish   main: 'lib/GoogleChart.js',
+17 silly publish   author: { name: 'Jam Risser' },
+17 silly publish   homepage: 'https://github.com/jamrizzi/google-chart-react',
+17 silly publish   repository:
+17 silly publish    { type: 'git',
+17 silly publish      url: 'git+https://github.com/jamrizzi/google-chart-react.git' },
+17 silly publish   bugs: { url: 'https://github.com/jamrizzi/google-chart-react/issues' },
+17 silly publish   dependencies:
+17 silly publish    { classnames: '^2.1.2',
+17 silly publish      invariant: '^2.2.1',
+17 silly publish      'react-load-script': '0.0.2' },
+17 silly publish   devDependencies:
+17 silly publish    { 'babel-eslint': '^4.1.3',
+17 silly publish      eslint: '^1.6.0',
+17 silly publish      'eslint-plugin-react': '^3.5.1',
+17 silly publish      gulp: '^3.9.0',
+17 silly publish      react: '^0.14.0',
+17 silly publish      'react-component-gulp-tasks': '^0.7.6',
+17 silly publish      'react-dom': '^0.14.0' },
+17 silly publish   peerDependencies: { react: '^0.14.0' },
+17 silly publish   'browserify-shim': { react: 'global:React' },
+17 silly publish   scripts:
+17 silly publish    { build: 'gulp clean && NODE_ENV=production gulp build',
+17 silly publish      examples: 'gulp dev:server',
+17 silly publish      lint: 'eslint ./; true',
+17 silly publish      'publish:site': 'NODE_ENV=production gulp publish:examples',
+17 silly publish      release: 'NODE_ENV=production gulp release',
+17 silly publish      start: 'gulp dev',
+17 silly publish      test: 'echo "no tests yet" && exit 0',
+17 silly publish      watch: 'gulp watch:lib' },
+17 silly publish   keywords: [ 'react', 'react-component' ],
+17 silly publish   readme: '# Google Chart\n\n__COMPONENT DESCRIPTION GOES HERE__\n\n\n## Demo & Examples\n\nLive demo: [jamrizzi.github.io/google-chart-react](http://jamrizzi.github.io/google-chart-react/)\n\nTo build the examples locally, run:\n\n```\nnpm install\nnpm start\n```\n\nThen open [`localhost:8000`](http://localhost:8000) in a browser.\n\n\n## Installation\n\nThe easiest way to use google-chart-react is to install it from NPM and include it in your own React build process (using [Browserify](http://browserify.org), [Webpack](http://webpack.github.io/), etc).\n\nYou can also use the standalone build by including `dist/google-chart-react.js` in your page. If you use this, make sure you have already included React, and it is available as a global variable.\n\n```\nnpm install google-chart-react --save\n```\n\n\n## Usage\n\n__EXPLAIN USAGE HERE__\n\n```\nvar GoogleChart = require(\'google-chart-react\');\n\n<GoogleChart>Example</GoogleChart>\n```\n\n### Properties\n\n* __DOCUMENT PROPERTIES HERE__\n\n### Notes\n\n__ADDITIONAL USAGE NOTES__\n\n\n## Development (`src`, `lib` and the build process)\n\n**NOTE:** The source code for the component is in `src`. A transpiled CommonJS version (generated with Babel) is available in `lib` for use with node.js, browserify and webpack. A UMD bundle is also built to `dist`, which can be included without the need for any build system.\n\nTo build, watch and serve the examples (which will also watch the component source), run `npm start`. If you just want to watch changes to `src` and rebuild `lib`, run `npm run watch` (this is useful if you are working with `npm link`).\n\n## License\n\n__PUT LICENSE HERE__\n\nCopyright (c) 2016 Jam Risser.\n\n',
+17 silly publish   readmeFilename: 'README.md',
+17 silly publish   gitHead: 'e4d146014738d87f29238e7741f63fb32c9fba39',
+17 silly publish   _id: 'google-chart-react@1.0.0',
+17 silly publish   _shasum: '4906053b06911d6a7f867cccd4b126c9ab1fb3a1',
+17 silly publish   _from: '.' }
+18 verbose getPublishConfig undefined
+19 silly mapToRegistry name google-chart-react
+20 silly mapToRegistry using default registry
+21 silly mapToRegistry registry https://registry.npmjs.org/
+22 silly mapToRegistry uri https://registry.npmjs.org/google-chart-react
+23 verbose publish registryBase https://registry.npmjs.org/
+24 silly publish uploading /home/jamrizzi/.npm/google-chart-react/1.0.0/package.tgz
+25 verbose stack Error: auth required for publishing
+25 verbose stack     at CachingRegistryClient.publish (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/publish.js:30:14)
+25 verbose stack     at /usr/local/lib/node_modules/npm/lib/publish.js:134:14
+25 verbose stack     at mapToRegistry (/usr/local/lib/node_modules/npm/lib/utils/map-to-registry.js:55:3)
+25 verbose stack     at publish_ (/usr/local/lib/node_modules/npm/lib/publish.js:104:3)
+25 verbose stack     at Array.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/slide/lib/bind-actor.js:15:8)
+25 verbose stack     at LOOP (/usr/local/lib/node_modules/npm/node_modules/slide/lib/chain.js:15:14)
+25 verbose stack     at LOOP (/usr/local/lib/node_modules/npm/node_modules/slide/lib/chain.js:14:28)
+25 verbose stack     at chain (/usr/local/lib/node_modules/npm/node_modules/slide/lib/chain.js:20:5)
+25 verbose stack     at /usr/local/lib/node_modules/npm/lib/publish.js:73:5
+25 verbose stack     at RES (/usr/local/lib/node_modules/npm/node_modules/inflight/inflight.js:23:14)
+26 verbose cwd /home/jamrizzi/Projects/apparelhub/components/google-chart-react
+27 error Linux 4.4.0-28-generic
+28 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "publish"
+29 error node v0.12.7
+30 error npm  v2.11.3
+31 error code ENEEDAUTH
+32 error need auth auth required for publishing
+32 error need auth You need to authorize this machine using `npm adduser`
+33 verbose exit [ 1, true ]
