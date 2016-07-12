@@ -1,6 +1,6 @@
 {
   "name": "google-chart-react",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Google Chart React",
   "main": "lib/GoogleChart.js",
   "author": "Jam Risser",
@@ -14,8 +14,7 @@
   },
   "dependencies": {
     "classnames": "^2.1.2",
-    "invariant": "^2.2.1",
-    "react-load-script": "0.0.2"
+    "underscore": "^1.8.3"
   },
   "devDependencies": {
     "babel-eslint": "^4.1.3",

@@ -1,6 +1,7 @@
 # Google Chart
 
-__COMPONENT DESCRIPTION GOES HERE__
+An unopinionated way to implement Google Charts into your React projects.
+The implementation is very similar to that presented by the Google Chart documentation.
 
 
 ## Demo & Examples
@@ -33,9 +34,9 @@ npm install google-chart-react --save
 __EXPLAIN USAGE HERE__
 
 ```
-var GoogleChart = require('google-chart-react');
+import GoogleChart from 'google-chart-react';
 
-<GoogleChart>Example</GoogleChart>
+<GoogleChart drawChart={this.drawBarChart} />
 ```
 
 ### Properties
@@ -58,4 +59,3 @@ To build, watch and serve the examples (which will also watch the component sour
 __PUT LICENSE HERE__
 
 Copyright (c) 2016 Jam Risser.
-
