@@ -30,9 +30,8 @@ var App = (function (_React$Component) {
 		_classCallCheck(this, App);
 
 		_get(Object.getPrototypeOf(App.prototype), 'constructor', this).call(this);
-		this.packages = [];
-		this.drawChart = function () {
-			var data = new google.visualization.DataTable();
+		this.drawPieChart = function (chartID) {
+			var data = new window.google.visualization.DataTable();
 			data.addColumn('string', 'Topping');
 			data.addColumn('number', 'Slices');
 			data.addRows([['Mushrooms', 3], ['Onions', 1], ['Olives', 1], ['Zucchini', 1], ['Pepperoni', 2]]);
@@ -41,7 +40,20 @@ var App = (function (_React$Component) {
 				'width': 400,
 				'height': 300
 			};
-			var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+			var chart = new window.google.visualization.PieChart(document.getElementById(chartID));
+			chart.draw(data, options);
+		};
+		this.drawBarChart = function (chartID) {
+			var data = new google.visualization.DataTable();
+			data.addColumn('string', 'Topping');
+			data.addColumn('number', 'Slices');
+			data.addRows([['Mushrooms', 3], ['Onions', 1], ['Olives', 1], ['Zucchini', 1], ['Pepperonis', 2]]);
+			var options = {
+				'title': 'How Much Pizza I Ate Last Night',
+				'width': 400,
+				'height': 300
+			};
+			var chart = new google.visualization.BarChart(document.getElementById(chartID));
 			chart.draw(data, options);
 		};
 	}
@@ -52,7 +64,8 @@ var App = (function (_React$Component) {
 			return _react2['default'].createElement(
 				'div',
 				null,
-				_react2['default'].createElement(_googleChartReact2['default'], { drawChart: this.drawChart, packages: this.packages })
+				_react2['default'].createElement(_googleChartReact2['default'], { drawChart: this.drawPieChart }),
+				_react2['default'].createElement(_googleChartReact2['default'], { drawChart: this.drawBarChart })
 			);
 		}
 	}]);
