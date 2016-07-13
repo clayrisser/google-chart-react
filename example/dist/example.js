@@ -30,7 +30,12 @@ var App = (function (_React$Component) {
 		_classCallCheck(this, App);
 
 		_get(Object.getPrototypeOf(App.prototype), 'constructor', this).call(this);
-		this.drawPieChart = function (chartID) {
+		window.googleChartReactPackages = ['corechart', 'gantt'];
+	}
+
+	_createClass(App, [{
+		key: 'drawPieChart',
+		value: function drawPieChart(chartID) {
 			var data = new window.google.visualization.DataTable();
 			data.addColumn('string', 'Topping');
 			data.addColumn('number', 'Slices');
@@ -42,30 +47,83 @@ var App = (function (_React$Component) {
 			};
 			var chart = new window.google.visualization.PieChart(document.getElementById(chartID));
 			chart.draw(data, options);
-		};
-		this.drawBarChart = function (chartID) {
-			var data = new google.visualization.DataTable();
-			data.addColumn('string', 'Topping');
-			data.addColumn('number', 'Slices');
-			data.addRows([['Mushrooms', 3], ['Onions', 1], ['Olives', 1], ['Zucchini', 1], ['Pepperonis', 2]]);
+		}
+	}, {
+		key: 'drawBarChart',
+		value: function drawBarChart(chartID) {
+			var data = google.visualization.arrayToDataTable([['City', '2010 Population', '2000 Population'], ['New York City, NY', 8175000, 8008000], ['Los Angeles, CA', 3792000, 3694000], ['Chicago, IL', 2695000, 2896000], ['Houston, TX', 2099000, 1953000], ['Philadelphia, PA', 1526000, 1517000]]);
 			var options = {
-				'title': 'How Much Pizza I Ate Last Night',
-				'width': 400,
-				'height': 300
+				title: 'Population of Largest U.S. Cities',
+				chartArea: { width: '50%' },
+				colors: ['#b0120a', '#ffab91'],
+				hAxis: {
+					title: 'Total Population',
+					minValue: 0
+				},
+				vAxis: {
+					title: 'City'
+				}
 			};
 			var chart = new google.visualization.BarChart(document.getElementById(chartID));
 			chart.draw(data, options);
-		};
-	}
-
-	_createClass(App, [{
+		}
+	}, {
+		key: 'drawGanttChart',
+		value: function drawGanttChart(chartID) {
+			var data = new google.visualization.DataTable();
+			data.addColumn('string', 'Task ID');
+			data.addColumn('string', 'Task Name');
+			data.addColumn('date', 'Start Date');
+			data.addColumn('date', 'End Date');
+			data.addColumn('number', 'Duration');
+			data.addColumn('number', 'Percent Complete');
+			data.addColumn('string', 'Dependencies');
+			data.addRows([['Research', 'Find sources', new Date(2015, 0, 1), new Date(2015, 0, 5), null, 100, null], ['Write', 'Write paper', null, new Date(2015, 0, 9), daysToMilliseconds(3), 25, 'Research,Outline'], ['Cite', 'Create bibliography', null, new Date(2015, 0, 7), daysToMilliseconds(1), 20, 'Research'], ['Complete', 'Hand in paper', null, new Date(2015, 0, 10), daysToMilliseconds(1), 0, 'Cite,Write'], ['Outline', 'Outline paper', null, new Date(2015, 0, 6), daysToMilliseconds(1), 100, 'Research']]);
+			var options = {
+				height: 275
+			};
+			var chart = new google.visualization.Gantt(document.getElementById(chartID));
+			chart.draw(data, options);
+			function daysToMilliseconds(days) {
+				return days * 24 * 60 * 60 * 1000;
+			}
+		}
+	}, {
 		key: 'render',
 		value: function render() {
 			return _react2['default'].createElement(
 				'div',
 				null,
-				_react2['default'].createElement(_googleChartReact2['default'], { drawChart: this.drawPieChart }),
-				_react2['default'].createElement(_googleChartReact2['default'], { drawChart: this.drawBarChart })
+				_react2['default'].createElement(
+					'div',
+					{ id: 'pieChart' },
+					_react2['default'].createElement(
+						'h2',
+						null,
+						'Pie Chart'
+					),
+					_react2['default'].createElement(_googleChartReact2['default'], { drawChart: this.drawPieChart })
+				),
+				_react2['default'].createElement(
+					'div',
+					{ id: 'barChart' },
+					_react2['default'].createElement(
+						'h2',
+						null,
+						'Bar Chart'
+					),
+					_react2['default'].createElement(_googleChartReact2['default'], { drawChart: this.drawBarChart })
+				),
+				_react2['default'].createElement(
+					'div',
+					{ id: 'ganttChart' },
+					_react2['default'].createElement(
+						'h2',
+						null,
+						'Gantt Chart'
+					),
+					_react2['default'].createElement(_googleChartReact2['default'], { drawChart: this.drawGanttChart })
+				)
 			);
 		}
 	}]);

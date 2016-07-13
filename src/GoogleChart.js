@@ -1,26 +1,9 @@
 import React from 'react';
-import Script from 'react-load-script';
 import _ from 'underscore';
 
 export default class GoogleChart extends React.Component {
-
 	constructor() {
 		super();
-		if (!GoogleChart.loaded) {
-			GoogleChart.loaded = true;
-			var head = document.getElementsByTagName('head')[0];
-			var script = document.createElement('script');
-			script.type = 'text/javascript';
-			script.onload = function() {
-				window.google = google;
-				google.charts.load('current', {packages: this.props.packages});
-				google.charts.setOnLoadCallback(function() {
-					window.dispatchEvent(new Event('googleChartReactLoaded-ai3r93'));
-				}.bind(this));
-			}.bind(this);
-			script.src = 'https://www.gstatic.com/charts/loader.js';
-			head.appendChild(script);
-		}
 	}
 
 	componentWillMount() {
@@ -37,14 +20,43 @@ export default class GoogleChart extends React.Component {
 				document.getElementById(this.chartID).innerHTML = 'Chart not created.';
 			}
 		}
+		if (window.googleChartReactPackages) {
+			this.packages = window.googleChartReactPackages;
+		} else {
+			this.packages = this.props.packages;
+		}
 	}
 
 	componentDidMount() {
-		this.props.packages.push('corechart');
-		window.addEventListener('googleChartReactLoaded-ai3r93', function() {
+		document.getElementById(this.chartID).innerHTML = 'Loading . . .';
+		if (!GoogleChart.libraryImported) {
+			GoogleChart.libraryImported = true;
+      this.importChartLibrary();
+		}
+		if (GoogleChart.libraryLoaded) { // if loaded, then draw chart
 			this.drawChart(this.chartID);
-		}.bind(this));
+		} else { // if not loaded, wait for load and draw chart
+			window.addEventListener('googleChartReactLoaded-ai3r93', function() {
+				document.getElementById(this.chartID).innerHTML = null;
+				this.drawChart(this.chartID);
+			}.bind(this));
+		}
 	}
+
+	importChartLibrary() {
+    var head = document.getElementsByTagName('head')[0];
+    var script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.onload = function() {
+			google.charts.load('current', {packages: this.packages});
+			google.charts.setOnLoadCallback(function() {
+				GoogleChart.libraryLoaded = true;
+				window.dispatchEvent(new Event('googleChartReactLoaded-ai3r93'));
+			}.bind(this));
+    }.bind(this);
+    script.src = 'https://www.gstatic.com/charts/loader.js';
+    head.appendChild(script);
+  }
 
 	render() {
 		return(
@@ -55,8 +67,9 @@ export default class GoogleChart extends React.Component {
 	}
 }
 
-GoogleChart.loaded = false;
+GoogleChart.libraryImported = false;
+GoogleChart.libraryLoaded = false;
 
 GoogleChart.defaultProps = {
-	packages: []
+	packages: ['corechart']
 };
