@@ -7,6 +7,14 @@ export default class GoogleChart extends React.Component {
 	}
 
 	componentWillMount() {
+		this.setVariables();
+	}
+
+	componentWillUpdate() {
+		this.setVariables();
+	}
+
+	setVariables() {
 		if (!this.props.chartID || this.props.chartID === '') { // prevents overlap of charts
 			var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
 			this.chartID = _.sample(possible, 18).join('');
