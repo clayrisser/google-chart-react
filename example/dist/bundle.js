@@ -1588,11 +1588,6 @@ var GoogleChart = (function (_React$Component) {
 			this.setVariables();
 		}
 	}, {
-		key: 'componentWillUpdate',
-		value: function componentWillUpdate() {
-			this.setVariables();
-		}
-	}, {
 		key: 'setVariables',
 		value: function setVariables() {
 			if (!this.props.chartID || this.props.chartID === '') {
