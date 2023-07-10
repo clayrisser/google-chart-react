@@ -1,7 +1,11 @@
 # Google Chart
 
+![](assets/google-chart.png)
+
 An unopinionated way to implement Google Charts into your React projects.
 The implementation is very similar to that presented by the Google Chart documentation.
+
+
 
 
 ## Demo & Examples
